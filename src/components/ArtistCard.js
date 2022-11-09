@@ -20,8 +20,6 @@ const ArtistCard = ({ artist }) => {
     );
   };
 
-  console.log(artist);
-
   return <div key={artist.id}>{artist === null ? null : getCard()}</div>;
 };
 

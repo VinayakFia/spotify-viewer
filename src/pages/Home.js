@@ -15,23 +15,22 @@ const Home = () => {
 
   const searchArtists = async (e) => {
     e.preventDefault();
-    const { data } = await axios.get("https://api.spotify.com/v1/search", {
+    const { data } = await axios.get("https://api.spotify.com/v1/me/top/artists", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
       params: {
-        q: searchKey,
-        type: "artist",
+        limit: 50
       },
     });
 
-    setArtists(data.artists.items);
+    console.log(data);
+
+    setArtists(data.items);
   };
 
   const renderArtists = () => {
-    return artists.map((artist) => (
-      <ArtistCard artist={artist}/>
-    ));
+    return artists.map((artist) => <ArtistCard artist={artist} />);
   };
 
   return (
@@ -43,14 +42,19 @@ const Home = () => {
           onChange={(e) => setSearchKey(e.target.value)}
         />
         <button
-          className="border-4 border-opacity-0 border-violet-200 bg-violet-500 rounded-xl p-2 text-violet-200 hover:border-opacity-75"
+          className="border-4 border-opacity-0 border-violet-200 bg-violet-500 
+          rounded-xl p-2 text-violet-200 hover:border-opacity-75"
           type={"submit"}
         >
           Search
         </button>
       </form>
       {renderArtists()}
-      <button className="h-10 col-span-4 rounded-xl bg-violet-500 text-violet-200 w-20 place-self-end" onClick={logout}>
+      <button
+        className="h-10 col-span-4 rounded-xl bg-violet-500 text-violet-200 w-20 
+        place-self-end border-4 border-opacity-0 border-violet-200 hover:border-opacity-75"
+        onClick={logout}
+      >
         Logout
       </button>
     </div>
