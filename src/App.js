@@ -35,7 +35,6 @@ function App() {
   }, []);
 
   const getPage = () => {
-    console.log(token);
     if (!token) return <Login />;
     else return <Home />;
   };
