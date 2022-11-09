@@ -38,38 +38,48 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-slate-700 w-full h-full grid grid-cols-4 gap-5 p-10">
+    <div className="w-full h-full grid grid-cols-4 gap-5 p-10 bg-[#131312]">
       <div
-        className="col-span-1 border-4 border-opacity-0 border-teal-200 bg-teal-500 
-          rounded-xl p-2 text-teal-200 font-bold text-xl text-center"
+        className="col-span-1 border-4 border-opacity-0 border-green-200 bg-[#1DB954]
+          rounded-full p-2 text-green-100 font-bold text-xl text-center"
       >
-        Spotify Stats
+        Spotify Top Artists
       </div>
       <button
-        className="col-span-1 border-4 border-opacity-0 border-violet-200 bg-violet-500 
-          rounded-xl p-2 text-violet-200 hover:border-opacity-75"
-        onClick={(e) => {setRange("short_term"); searchArtists(e)}}
+        className="col-span-1 bg-[#222322] 
+          rounded-full p-2 text-[#FEFFFE]  font-semibold hover:bg-neutral-800"
+        onClick={(e) => {
+          setRange("short_term");
+          searchArtists(e);
+        }}
       >
         Short Range
       </button>
       <button
-        className="col-span-1 border-4 border-opacity-0 border-violet-200 bg-violet-500 
-          rounded-xl p-2 text-violet-200 hover:border-opacity-75"
-        onClick={(e) => {setRange("medium_term"); searchArtists(e)}}
+        className="col-span-1  bg-[#222322] 
+          rounded-full p-2 text-[#FEFFFE]  font-semibold hover:bg-neutral-800"
+        onClick={(e) => {
+          setRange("medium_term");
+          searchArtists(e);
+        }}
       >
         Medium Range
       </button>
       <button
-        className="col-span-1 border-4 border-opacity-0 border-violet-200 bg-violet-500 
-          rounded-xl p-2 text-violet-200 hover:border-opacity-75"
-        onClick={(e) => {setRange("long_term"); searchArtists(e)}}
+        className="col-span-1 bg-[#222322] 
+          rounded-full p-2 text-[#FEFFFE] font-semibold hover:bg-neutral-800"
+        onClick={(e) => {
+          setRange("long_term");
+          searchArtists(e);
+        }}
       >
         Long Range
       </button>
       {renderArtists()}
       <button
-        className="h-10 col-span-4 rounded-xl bg-violet-500 text-violet-200 w-20 
-        place-self-end border-4 border-opacity-0 border-violet-200 hover:border-opacity-75"
+        className="h-10 col-span-4  w-20 
+        place-self-end col-span-1 bg-[#222322] 
+        rounded-full p-2 text-[#FEFFFE] font-semibold hover:bg-neutral-800"
         onClick={logout}
       >
         Logout

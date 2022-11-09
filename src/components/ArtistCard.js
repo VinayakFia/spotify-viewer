@@ -3,7 +3,7 @@ import React from "react";
 const ArtistCard = ({ artist }) => {
   const getCard = () => {
     return (
-      <div className="bg-violet-800 p-4 rounded-xl">
+      <div className="bg-[#191819] p-4 rounded-xl">
         <div className="pb-[100%] relative mb-3 ">
           {artist.images.length !== 0 ? (
             <img
@@ -13,7 +13,7 @@ const ArtistCard = ({ artist }) => {
             />
           ) : null}
         </div>
-        <p className="text-violet-200 font-semibold text-lg text-end">
+        <p className="text-[#FEFFFE] font-semibold text-lg text-end">
           {artist.name}
         </p>{" "}
       </div>
