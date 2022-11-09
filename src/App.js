@@ -1,13 +1,20 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { RESPONSE_TYPE, CLIENT_ID, AUTH_ENDPOINT, REDIRECT_URI } from "./config";
+import {
+  RESPONSE_TYPE,
+  CLIENT_ID,
+  AUTH_ENDPOINT,
+  REDIRECT_URI,
+} from "./config";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+
+export const Context = React.createContext();
 
 function App() {
   const [token, setToken] = useState("");
-  const [searchKey, setSearchKey] = useState("");
-  const [artists, setArtists] = useState([]);
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -27,59 +34,18 @@ function App() {
     setToken(token);
   }, []);
 
-  const logout = () => {
-    setToken("");
-    window.localStorage.removeItem("token");
-  };
-
-  const searchArtists = async (e) => {
-    e.preventDefault();
-    const { data } = await axios.get("https://api.spotify.com/v1/search", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      params: {
-        q: searchKey,
-        type: "artist",
-      },
-    });
-
-    setArtists(data.artists.items);
-  };
-
-  const renderArtists = () => {
-    return artists.map((artist) => (
-      <div key={artist.id}>
-        {artist.images.length ? (
-          <img width={"100%"} src={artist.images[0].url} alt="" />
-        ) : (
-          <div>No Image</div>
-        )}
-        {artist.name}
-      </div>
-    ));
+  const getPage = () => {
+    console.log(token);
+    if (!token) return <Login />;
+    else return <Home />;
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Spotify React</h1>
-        {!token ? (
-          <a
-            href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}
-          >
-            Login to Spotify
-          </a>
-        ) : (
-          <button onClick={logout}>Logout</button>
-        )}
-        <form onSubmit={searchArtists}>
-          <input type="text" onChange={(e) => setSearchKey(e.target.value)} />
-          <button type={"submit"}>Search</button>
-        </form>
-        {renderArtists()}
-      </header>
-    </div>
+    <Context.Provider value={{ token, setToken }}>
+      <div className="">
+        {getPage()}
+      </div>
+    </Context.Provider>
   );
 }
 
