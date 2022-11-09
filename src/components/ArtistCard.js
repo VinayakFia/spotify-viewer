@@ -8,17 +8,20 @@ const ArtistCard = ({ artist }) => {
         transition-all ease-in-out duration-200"
       >
         <div className="pb-[100%] relative mb-3 ">
-          {artist.images.length !== 0 ? (
+          {artist.album.images.length !== 0 ? (
             <img
               className="rounded-xl h-full w-full object-cover absolute"
-              src={artist.images[0].url}
+              src={artist.album.images[0].url}
               alt=""
             />
           ) : null}
         </div>
-        <p className="text-[#FEFFFE] font-semibold text-lg text-end">
+        <p className="text-stone-400 font-semibold text-sm text-end">
+          {artist.artists[0].name}
+        </p>
+        <p className="text-[#FEFFFE] font-semibold text-md text-end">
           {artist.name}
-        </p>{" "}
+        </p>
       </div>
     );
   };

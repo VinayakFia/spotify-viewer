@@ -1,22 +1,25 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../App";
 import axios from "axios";
 import ArtistCard from "../components/ArtistCard";
 
 const Home = () => {
-  const { token, setToken } = useContext(Context);
-  const [artists, setArtists] = useState([]);
-  const [range, setRange] = useState("medium_term");
+  const { token, setToken, artists, setArtists, range, setRange } =
+    useContext(Context);
+
+  useEffect(() => {
+    console.log("here");
+    searchArtists().then(renderArtists());
+  }, [range]);
 
   const logout = () => {
     setToken("");
     window.localStorage.removeItem("token");
   };
 
-  const searchArtists = async (e) => {
-    //e.preventDefault();
+  const searchArtists = async () => {
     const { data } = await axios.get(
-      "https://api.spotify.com/v1/me/top/artists",
+      "https://api.spotify.com/v1/me/top/tracks",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -27,8 +30,6 @@ const Home = () => {
         },
       }
     );
-
-    console.log(data);
 
     setArtists(data.items);
   };
@@ -51,7 +52,6 @@ const Home = () => {
           rounded-full p-2 text-[#FEFFFE]  font-semibold hover:bg-neutral-800"
           onClick={(e) => {
             setRange("short_term");
-            searchArtists(e);
           }}
         >
           Short Range
@@ -61,7 +61,6 @@ const Home = () => {
           rounded-full p-2 text-[#FEFFFE]  font-semibold hover:bg-neutral-800"
           onClick={(e) => {
             setRange("medium_term");
-            searchArtists(e);
           }}
         >
           Medium Range
@@ -71,21 +70,19 @@ const Home = () => {
           rounded-full p-2 text-[#FEFFFE] font-semibold hover:bg-neutral-800"
           onClick={(e) => {
             setRange("long_term");
-            searchArtists(e);
           }}
         >
           Long Range
         </button>
         <button
-        className="h-10  w-20 bg-[#222322] place-self-end col-span-3
+          className="h-10  w-20 bg-[#222322] place-self-end col-span-3
         rounded-full p-2 text-[#FEFFFE] font-semibold hover:bg-neutral-800"
-        onClick={logout}
-      >
-        Logout
-      </button>
+          onClick={logout}
+        >
+          Logout
+        </button>
       </div>
-
-      <div className="w-full h-full grid xl:grid-cols-10 lg:grid-cols-8 md:grid-cols-6 grid-cols-6 gap-5 p-10 bg-[#131312]">
+      <div className="w-full h-full grid xl:grid-cols-8 lg:grid-cols-6 md:grid-cols-4 grid-cols-3 gap-5 p-10 bg-[#131312]">
         {renderArtists()}
       </div>
     </div>

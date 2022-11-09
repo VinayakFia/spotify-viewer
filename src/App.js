@@ -15,6 +15,8 @@ export const Context = React.createContext();
 
 function App() {
   const [token, setToken] = useState("");
+  const [artists, setArtists] = useState([]);
+  const [range, setRange] = useState("");
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -40,7 +42,7 @@ function App() {
   };
 
   return (
-    <Context.Provider value={{ token, setToken }}>
+    <Context.Provider value={{ token, setToken, artists, setArtists, range, setRange }}>
       <div className="">
         {getPage()}
       </div>
