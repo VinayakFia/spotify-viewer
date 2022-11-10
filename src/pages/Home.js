@@ -7,8 +7,9 @@ const Home = () => {
   const { token, setToken, artists, setArtists, range, setRange } =
     useContext(Context);
 
+  searchArtists.then(renderArtists());
+
   useEffect(() => {
-    console.log("here");
     searchArtists().then(renderArtists());
   }, [range]);
 
