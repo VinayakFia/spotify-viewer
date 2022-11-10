@@ -85,6 +85,8 @@ const Home = () => {
   };
 
   const renderGenres = () => {
+		if (genres.length === 0) return null;
+		console.log(genres);
 		const max = genres[0][1];
 
 		function roundUpNearest10(num) {
@@ -118,6 +120,8 @@ const Home = () => {
       </div>
     ));
   };
+
+	setRange("medium_term");
 
   return (
     <div className="w-full h-full p-10 bg-[#131312] lg:flex xl:flex 2xl:flex">
