@@ -9,7 +9,7 @@ const Home = () => {
 
   useEffect(() => {
     searchArtists().then(renderArtists());
-  }, []);
+  }, [range]);
 
   const logout = () => {
     setToken("");
