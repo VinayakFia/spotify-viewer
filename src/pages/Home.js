@@ -82,7 +82,7 @@ const Home = () => {
           Logout
         </button>
       </div>
-      <div className="w-full h-full grid xl:grid-cols-8 lg:grid-cols-6 md:grid-cols-4 grid-cols-3 gap-5 p-10 bg-[#131312]">
+      <div className="w-full h-full grid xl:grid-cols-8 lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 grid-cols-3 gap-5 p-10 bg-[#131312]">
         {renderArtists()}
       </div>
     </div>
