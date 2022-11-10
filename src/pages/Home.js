@@ -55,13 +55,13 @@ const Home = () => {
       .map((x) => x.genres)
       .flat(1)
       .map((x, i) =>
-        x in genreObj ? (genreObj[x] += 1 + (i - 50) / 10) : (genreObj[x] = 1)
+        x in genreObj ? (genreObj[x] += 1 + (i - 50)) : (genreObj[x] = 1)
       );
 
     let genresArr = [];
 
     // TODO: THIS HAS ABSOLUTELY ABYSMAL STYLE BUT IT WORKS OOFT
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
       let max = 0;
       let obj = {};
       for (let j = 0; j < Object.values(genreObj).length; j++) {
