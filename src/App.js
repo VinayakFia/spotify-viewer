@@ -16,7 +16,7 @@ export const Context = React.createContext();
 function App() {
   const [token, setToken] = useState("");
   const [artists, setArtists] = useState([]);
-  const [range, setRange] = useState("");
+  const [range, setRange] = useState("medium_range");
 
   useEffect(() => {
     const hash = window.location.hash;
