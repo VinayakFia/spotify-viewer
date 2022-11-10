@@ -6,6 +6,8 @@ import ArtistCard from "../components/ArtistCard";
 const Home = () => {
   const { token, setToken, artists, setArtists, range, setRange } =
     useContext(Context);
+	
+	setRange("medium_term");
 
   useEffect(() => {
     console.log("here");
