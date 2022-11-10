@@ -15,7 +15,7 @@ export const Context = React.createContext();
 
 function App() {
   const [token, setToken] = useState("");
-  const [artists, setArtists] = useState([]);
+  const [artists, setArtists] = useState(Array(50).fill(null));
   const [range, setRange] = useState("medium_range");
 
   useEffect(() => {

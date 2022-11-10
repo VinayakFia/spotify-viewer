@@ -84,6 +84,7 @@ const Home = () => {
     return artists.map((artist) => <ArtistCard artist={artist} />);
   };
 
+	// This should probably be a component
   const renderGenres = () => {
 		if (genres.length === 0) return null;
 		const max = genres[0][1];
@@ -119,8 +120,6 @@ const Home = () => {
       </div>
     ));
   };
-
-	setRange("medium_term");
 
   return (
     <div className="w-full h-full p-10 bg-[#131312] lg:flex xl:flex 2xl:flex">

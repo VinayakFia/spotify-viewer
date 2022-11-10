@@ -26,9 +26,15 @@ const ArtistCard = ({ artist }) => {
     );
   };
 
+  if (artist === null) {
+    return (
+      <div className="bg-[#191819] p-4 rounded-xl"></div>
+    );
+  }
+
   return (
     <a href={artist.external_urls.spotify} key={artist.id}>
-      {artist === null ? null : getCard()}
+      {getCard()}
     </a>
   );
 };
