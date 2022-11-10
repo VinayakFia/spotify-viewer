@@ -86,7 +86,6 @@ const Home = () => {
 
   const renderGenres = () => {
 		if (genres.length === 0) return null;
-		console.log(genres);
 		const max = genres[0][1];
 
 		function roundUpNearest10(num) {
