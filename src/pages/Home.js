@@ -54,8 +54,9 @@ const Home = () => {
     data.items
       .map((x) => x.genres)
       .flat(1)
-      .sort()
-      .map((x) => (x in genreObj ? (genreObj[x] += 1) : (genreObj[x] = 1)));
+      .map((x, i) =>
+        x in genreObj ? (genreObj[x] += 1 + (i - 50) / 20) : (genreObj[x] = 1)
+      );
 
     let genresArr = [];
 
@@ -84,39 +85,58 @@ const Home = () => {
     return artists.map((artist) => <ArtistCard artist={artist} />);
   };
 
-	// This should probably be a component
+  // This should probably be a component
   const renderGenres = () => {
-		if (genres.length === 0) return null;
-		const max = genres[0][1];
+    if (genres.length === 0) return null;
+    const max = genres[0][1];
 
-		function roundUpNearest10(num) {
-			return Math.ceil(num / 10) * 10;
-		}
+    function roundUpNearest10(num) {
+      return Math.ceil(num / 10) * 10;
+    }
 
-		const getWidth = (x) => {
-			x = roundUpNearest10(x * 100);
-			switch(x) {
-				case 100: return "w-[100%]";
-				case 90: return "w-[90%]";
-				case 80: return "w-[80%]";
-				case 70: return "w-[70%]";
-				case 60: return "w-[60%]";
-				case 50: return "w-[50%]";
-				case 40: return "w-[40%]";
-				case 30: return "w-[30%]";
-				case 20: return "w-[20%]";
-				case 10: return "w-[10%]";
-				default: return "w-[0%]"
-			}
-		}
+    const getWidth = (x) => {
+      x = roundUpNearest10(x * 100);
+      switch (x) {
+        case 100:
+          return "w-[100%]";
+        case 90:
+          return "w-[90%]";
+        case 80:
+          return "w-[80%]";
+        case 70:
+          return "w-[70%]";
+        case 60:
+          return "w-[60%]";
+        case 50:
+          return "w-[50%]";
+        case 40:
+          return "w-[40%]";
+        case 30:
+          return "w-[30%]";
+        case 20:
+          return "w-[20%]";
+        case 10:
+          return "w-[10%]";
+        default:
+          return "w-[0%]";
+      }
+    };
 
     return genres.map((x) => (
       <div
         className="col-span-3 relative
 			rounded-full text-[#FEFFFE] font-semibold hover:bg-neutral-800"
       >
-        <div className={`bg-[#1DB954] ${getWidth(x[1]/max)} absolute rounded-full p-3`}>{x[0]}</div>
-        <div className="bg-[#222322] rounded-full p-3 text-[#FEFFFE] font-semibold">.</div>
+        <div
+          className={`bg-[#1DB954] ${getWidth(
+            x[1] / max
+          )} absolute rounded-full p-3`}
+        >
+          {x[0]}
+        </div>
+        <div className="bg-[#222322] rounded-full p-3 text-[#FEFFFE] font-semibold">
+          .
+        </div>
       </div>
     ));
   };
