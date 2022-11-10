@@ -43,7 +43,7 @@ function App() {
 
   return (
     <Context.Provider value={{ token, setToken, artists, setArtists, range, setRange }}>
-      <div className="">
+      <div className="absolute w-full lg:h-full xl:h-ful 2xl:h-full">
         {getPage()}
       </div>
     </Context.Provider>

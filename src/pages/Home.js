@@ -122,8 +122,8 @@ const Home = () => {
   };
 
   return (
-    <div className="w-full h-full p-10 bg-[#131312] lg:flex xl:flex 2xl:flex">
-      <div className="grid grid-cols-3 gap-5 lg:h-0 xl:h-0 2xl:h-0">
+    <div className="w-full h-full bg-[#131312] lg:flex xl:flex 2xl:flex">
+      <div className="grid grid-cols-3 gap-5 lg:h-0 xl:h-0 2xl:h-0 p-10">
         <div
           className="col-span-full border-4 border-opacity-0 border-green-200 bg-[#1DB954]
           rounded-full p-2 text-green-100 font-bold text-xl text-center m-auto"
@@ -132,7 +132,7 @@ const Home = () => {
         </div>
         <button
           className="col-span-1 bg-[#222322] 
-          rounded-full p-2 text-[#FEFFFE]  font-semibold hover:bg-neutral-800 m-auto"
+          rounded-full p-2 text-[#FEFFFE] font-semibold hover:bg-neutral-800 m-auto"
           onClick={(e) => {
             setRange("short_term");
           }}
@@ -159,14 +159,14 @@ const Home = () => {
         </button>
         {renderGenres()}
         <button
-          className="h-10  w-20 bg-[#222322] place-self-end col-span-3
+          className="h-10 w-20 bg-[#222322] col-span-3 m-auto
         rounded-full p-2 text-[#FEFFFE] font-semibold hover:bg-neutral-800"
           onClick={logout}
         >
           Logout
         </button>
       </div>
-      <div className="col-span-2 w-full h-full grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 p-10 bg-[#131312]">
+      <div className="col-span-2 w-full h-full grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 p-10 bg-[#131312] lg:overflow-auto xl:overflow-auto 2xl:overflow-auto">
         {renderArtists()}
       </div>
     </div>

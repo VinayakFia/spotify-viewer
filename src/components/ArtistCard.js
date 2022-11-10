@@ -27,8 +27,9 @@ const ArtistCard = ({ artist }) => {
   };
 
   if (artist === null) {
+    // NOTE: this is a really bad workaround but works for the time being
     return (
-      <div className="bg-[#191819] p-4 rounded-xl"></div>
+      <div className="bg-[#191819] p-4 rounded-xl text-[#191819] animate-pulse h-100">.</div>
     );
   }
 
