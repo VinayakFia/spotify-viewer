@@ -135,7 +135,7 @@ const Home = () => {
           {x[0]}
         </div>
         <div className="bg-[#222322] rounded-full p-3 text-[#FEFFFE] font-semibold">
-          .
+          {x[0]}
         </div>
       </div>
     ));
