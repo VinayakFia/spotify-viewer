@@ -135,6 +135,13 @@ const Home = () => {
           {x[0]}
         </div>
         <div className="bg-[#222322] rounded-full p-3 text-[#FEFFFE] font-semibold">
+          .
+        </div>
+        <div
+          className={`bg-[#222322] ${getWidth(
+            x[1] / max
+          )} absolute rounded-full p-3`}
+        >
           {x[0]}
         </div>
       </div>
