@@ -137,13 +137,6 @@ const Home = () => {
         <div className="bg-[#222322] rounded-full p-3 text-[#FEFFFE] font-semibold">
           .
         </div>
-        <div
-          className={`bg-[#222322] ${getWidth(
-            x[1] / max
-          )} rounded-full p-3`}
-        >
-          .
-        </div>
       </div>
     ));
   };
