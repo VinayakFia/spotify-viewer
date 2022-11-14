@@ -125,17 +125,17 @@ const Home = () => {
     return genres.map((x) => (
       <div
         className="col-span-3 relative
-			rounded-full text-[#FEFFFE] font-semibold bg-neutral-800"
+			rounded-full text-[#FEFFFE] font-semibold hover:bg-neutral-800"
       >
         <div
           className={`bg-[#1DB954] ${getWidth(
             x[1] / max
-          )} absolute rounded-full p-3`}
+          )} absolute rounded-full p-3 truncate`}
         >
           {x[0]}
         </div>
         <div className="bg-[#222322] rounded-full p-3 text-[#FEFFFE] font-semibold">
-          {x[0]}
+          .
         </div>
       </div>
     ));
