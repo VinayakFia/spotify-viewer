@@ -145,23 +145,24 @@ const Home = () => {
     <div className="w-full h-full bg-[#131312] lg:flex xl:flex 2xl:flex">
       <div className="grid grid-cols-3 gap-5 lg:h-0 xl:h-0 2xl:h-0 p-10">
         <div
-          className="col-span-full border-4 border-opacity-0 border-green-200 bg-[#1DB954]
-          rounded-full p-2 text-green-100 font-bold text-xl text-center m-auto"
+          className="col-span-full
+          p-2 text-[#FEFFFE] font-bold text-3xl text-center"
         >
           Top Genres
         </div>
+        <p className="col-span-full text-stone-300 font-bold text-lg p-2">Select a time range</p>
         <button
-          className="col-span-1 bg-[#222322] 
-          rounded-full p-2 text-[#FEFFFE] font-semibold hover:bg-neutral-800 m-auto"
+          className="bg-[#222322]
+          rounded-full p-2 text-[#FEFFFE] font-semibold hover:bg-neutral-800"
           onClick={(e) => {
             setRange("short_term");
           }}
         >
-          Short Range
+          Short Range 
         </button>
         <button
-          className="col-span-1  bg-[#222322] 
-          rounded-full p-2 text-[#FEFFFE] font-semibold hover:bg-neutral-800 m-auto"
+          className="bg-[#222322]
+          rounded-full p-2 text-[#FEFFFE] font-semibold hover:bg-neutral-800"
           onClick={(e) => {
             setRange("medium_term");
           }}
@@ -169,8 +170,8 @@ const Home = () => {
           Medium Range
         </button>
         <button
-          className="col-span-1 bg-[#222322] 
-          rounded-full p-2 text-[#FEFFFE] font-semibold hover:bg-neutral-800 m-auto"
+          className="bg-[#222322]
+          rounded-full p-2 text-[#FEFFFE] font-semibold hover:bg-neutral-800"
           onClick={(e) => {
             setRange("long_term");
           }}
