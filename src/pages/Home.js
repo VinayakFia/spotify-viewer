@@ -143,40 +143,36 @@ const Home = () => {
 
   return (
     <div className="w-full h-full bg-[#131312] lg:flex xl:flex 2xl:flex">
-      <div className="grid grid-cols-3 gap-5 lg:h-0 xl:h-0 2xl:h-0 p-10">
+      <div className="grid grid-cols-3 gap-5 lg:h-0 xl:h-0 2xl:h-0 p-10 min-w-[400px]">
         <div
           className="col-span-full
           p-2 text-[#FEFFFE] font-bold text-3xl text-center"
         >
           Top Genres
         </div>
-        <p className="col-span-full text-stone-300 font-bold text-lg p-2">Select a time range</p>
         <button
-          className="bg-[#222322]
-          rounded-full p-2 text-[#FEFFFE] font-semibold hover:bg-neutral-800"
+          className={`p-2 ${range === "short_term" ? "text-[#1DB954]" : "text-[#FEFFFE]"} font-semibold`}
           onClick={(e) => {
             setRange("short_term");
           }}
         >
-          Short Range 
+          4 weeks
         </button>
         <button
-          className="bg-[#222322]
-          rounded-full p-2 text-[#FEFFFE] font-semibold hover:bg-neutral-800"
+          className={`p-2 ${range === "medium_term" ? "text-[#1DB954]" : "text-[#FEFFFE]"} font-semibold`}
           onClick={(e) => {
             setRange("medium_term");
           }}
         >
-          Medium Range
+          6 months
         </button>
         <button
-          className="bg-[#222322]
-          rounded-full p-2 text-[#FEFFFE] font-semibold hover:bg-neutral-800"
+          className={`p-2 ${range === "long_term" ? "text-[#1DB954]" : "text-[#FEFFFE]"} font-semibold`}
           onClick={(e) => {
             setRange("long_term");
           }}
         >
-          Long Range
+          lifetime
         </button>
         {renderGenres()}
         <button
